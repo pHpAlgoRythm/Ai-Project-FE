@@ -50,7 +50,6 @@
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
-import auth from '../api/auth'
 
 const $q = useQuasar()
 const router = useRouter()
@@ -74,17 +73,9 @@ const submitLogin = async () => {
     return
   }
 
-  loading.value = true
-
-  const result = await auth.login(form.value)
-
-  if (result.success) {
-    $q.notify({ type: 'positive', message: 'Login Successful' })
-    router.push('/admin') // Redirect to dashboard
-  } else {
-    $q.notify({ type: 'negative', message: result.message })
+  if (form.value.email && form.value.password) {
+    $q.notify({ type: 'positive', message: 'Login Successfully' })
+    router.push('/dash')
   }
-
-  loading.value = false
 }
 </script>
