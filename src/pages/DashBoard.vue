@@ -85,12 +85,40 @@ const chartOptions = ref({
 const resultMessageTitle = ref('')
 const resultText = ref()
 
+const typeText = (target, text, speed = 50) => {
+  let i = 0
+  target.value = ''
+
+  const typingInterval = setInterval(() => {
+    if (i < text.length) {
+      target.value += text.charAt(i)
+      i++
+    } else {
+      clearInterval(typingInterval)
+    }
+  }, speed)
+}
+
 const handleButtonClick = (btnLabel) => {
   switch (btnLabel) {
     case 'Generate Quarter View of AHT in Bar Graph':
       showChart.value = true
-      resultMessageTitle.value = "Here's the quarter view of AHT in Bar Graph"
-      resultText.value = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+
+      typeText(resultMessageTitle, "Here's the quarter view of AHT in Bar Graph")
+
+      typeText(
+        resultText,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      )
+      break
+
+    case 'Generate the FCR for Supervisor 2':
+      typeText(resultMessageTitle, "Here's the FCR for Supervisor 2")
+
+      typeText(
+        resultText,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      )
       break
   }
 }
@@ -110,8 +138,9 @@ const outputMessageTitle = ref('')
 const outputText = ref('')
 
 const sendPrompt = () => {
-  outputMessageTitle.value = "Here's the quarter view of AHT in Bar Graph"
-  outputText.value = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+  typeText(outputMessageTitle, "Here's the quarter view of AHT in Bar Graph")
+
+  typeText(outputText, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry')
 }
 </script>
 
