@@ -28,19 +28,19 @@
 
           <div class="right-side">
             <q-card class="result-container">
-              <q-card-section>
+              <q-card-section v-if="showChart">
                 <Bar :data="chartData" :options="chartOptions" class="result-chart" />
               </q-card-section>
 
               <q-card-section>
-                <div class="text-p">{{ outputMessageTitle }}</div>
-                <div class="output-text text-p q-mt-md">{{ outputText }}</div>
+                <div class="text-p">{{ resultMessageTitle }}</div>
+                <div class="output-text text-p q-mt-md">{{ resultText }}</div>
               </q-card-section>
             </q-card>
           </div>
         </div>
 
-        <div class="row q-mt-md q-col-gutter-sm">
+        <div class="query-btn-container">
           <q-btn
             v-for="btn in buttons"
             :key="btn.label"
@@ -63,6 +63,7 @@ import { Bar } from 'vue-chartjs'
 // Register Chart.js components
 Chart.register(...registerables)
 
+const showChart = ref(false)
 const AdditionalPrompt = ref('')
 
 const chartData = ref({
@@ -80,6 +81,20 @@ const chartOptions = ref({
   responsive: true,
   maintainAspectRatio: false,
 })
+
+const resultMessageTitle = ref('')
+const resultText = ref()
+
+// resultMessageTitle.value = "Here's the quarter view of AHT in Bar Graph"
+// resultText.value = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+
+const handleButtonClick = (btnLabel) => {
+  switch (btnLabel) {
+    case 'Generate Customer Satisfaction for Supervisor 1':
+      showChart.value = true
+      break
+  }
+}
 
 const buttons = ref([
   { label: 'Generate the FCR for Supervisor 2', color: 'transparent' },
@@ -182,6 +197,11 @@ const sendPrompt = () => {
   width: 100%;
 }
 
+.additional-input:focus {
+  border: none;
+  outline: none;
+}
+
 .btn-sendPromt {
   background: #660202e7;
   width: 100px;
@@ -209,5 +229,19 @@ const sendPrompt = () => {
 .result-chart {
   height: 250px;
   background: rgb(14, 13, 13);
+}
+
+.query-btn-container {
+  display: flex;
+  margin: 10px 5px 10px 5px;
+  gap: 10px;
+}
+
+.query-btn {
+  border: 1px solid white;
+}
+
+.query-btn:hover {
+  background: white;
 }
 </style>
