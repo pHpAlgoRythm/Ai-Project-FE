@@ -71,7 +71,7 @@ const chartData = ref({
     {
       label: 'AHT Data',
       data: [10, 20, 30, 25],
-      backgroundColor: ['#76f2c1', '#62e1b1', '#48c89d', '#36b089'],
+      backgroundColor: ['#ec0505', '#7c0303', '#ec0505', '#7c0303'],
     },
   ],
 })
@@ -114,8 +114,9 @@ const sendPrompt = () => {
 
 .btn-print,
 .btn-export {
-  color: rgb(42, 221, 197);
+  color: rgb(247, 241, 241);
   width: 200px;
+  background: #d8071950;
 }
 
 .btn-export::before,
@@ -127,10 +128,10 @@ const sendPrompt = () => {
   transform: translateX(-50%);
   width: 100%;
   height: 0.5px;
-  background: #00ffea;
+  background: #660202e7;
   box-shadow:
-    0 0 1px #00ffea,
-    0 0 1px #00ffea;
+    0 0 1px #660202e7,
+    0 0 1px #660202e7;
   transition: all 0.3s ease;
 }
 
@@ -143,10 +144,10 @@ const sendPrompt = () => {
   transform: translateX(-50%);
   width: 100%;
   height: 1px;
-  background: #00ffea;
+  background: #660202e7;
   box-shadow:
-    0 0 1px #00ffea,
-    0 0 10px #00ffea; /* Glow effect */
+    0 0 1px #660202e7,
+    0 0 10px #660202e7;
   transition: all 0.3s ease;
 }
 
@@ -158,7 +159,7 @@ const sendPrompt = () => {
 .left-side {
   width: 65%;
   height: 100vh;
-  background: rgb(12, 11, 20);
+  background: rgb(22, 22, 22);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 20px 20px 0 20px;
@@ -169,7 +170,7 @@ const sendPrompt = () => {
 
 .propmt-card {
   background: transparent;
-  border: 1px solid rgb(42, 221, 197);
+  border: 1px solid rgb(233, 238, 237);
   color: rgb(42, 221, 197);
   display: flex;
   flex-direction: column;
@@ -182,7 +183,7 @@ const sendPrompt = () => {
 }
 
 .btn-sendPromt {
-  background: rgb(4, 112, 98);
+  background: #660202e7;
   width: 100px;
   border-radius: 10px;
   color: white;
@@ -194,7 +195,7 @@ const sendPrompt = () => {
 }
 
 .right-side {
-  background: rgb(12, 11, 20);
+  background: rgb(22, 22, 22);
   width: 35%;
   display: flex;
   flex-direction: column;
@@ -207,6 +208,6 @@ const sendPrompt = () => {
 
 .result-chart {
   height: 250px;
-  background: black;
+  background: rgb(14, 13, 13);
 }
 </style>
