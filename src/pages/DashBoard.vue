@@ -85,13 +85,12 @@ const chartOptions = ref({
 const resultMessageTitle = ref('')
 const resultText = ref()
 
-// resultMessageTitle.value = "Here's the quarter view of AHT in Bar Graph"
-// resultText.value = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
-
 const handleButtonClick = (btnLabel) => {
   switch (btnLabel) {
-    case 'Generate Customer Satisfaction for Supervisor 1':
+    case 'Generate Quarter View of AHT in Bar Graph':
       showChart.value = true
+      resultMessageTitle.value = "Here's the quarter view of AHT in Bar Graph"
+      resultText.value = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
       break
   }
 }
